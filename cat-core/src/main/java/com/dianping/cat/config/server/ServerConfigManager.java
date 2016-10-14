@@ -266,7 +266,9 @@ public class ServerConfigManager implements LogEnabled {
 	}
 
 	public boolean isCacheTransaction(String type) {
+		// modified by dingning
 		return StringUtils.isNotEmpty(type) && (type.startsWith("Cache.memcached") || type.startsWith("Cache.redis"));
+		//return StringUtils.isNotEmpty(type) && type.startsWith("Cache.memcached"));
 	}
 
 	public boolean isHdfsOn() {

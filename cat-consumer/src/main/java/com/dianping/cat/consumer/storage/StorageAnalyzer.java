@@ -96,6 +96,8 @@ public class StorageAnalyzer extends AbstractMessageAnalyzer<StorageReport> impl
 			if (message instanceof Event) {
 				String type = message.getType();
 
+				// modified by dingning
+				// if (type.equals("Cache.memcached.server"){
 				if (type.equals("Cache.memcached.server") || type.equals("Cache.redis.server")) {
 					ip = message.getName();
 					int index = ip.indexOf(":");
@@ -130,12 +132,18 @@ public class StorageAnalyzer extends AbstractMessageAnalyzer<StorageReport> impl
 					method = message.getName().toLowerCase();
 				}
 				if (type.equals("SQL.Database")) {
-					Database database = m_databaseParser.queryDatabaseName(message.getName());
-
-					if (database != null) {
-						ip = database.getIp();
-						databaseName = database.getName();
-					}
+					// modified by dingning
+//					Database database = m_databaseParser.queryDatabaseName(message.getName());
+//
+//					if (database != null) {
+//						ip = database.getIp();
+//						databaseName = database.getName();
+//					}
+					databaseName = message.getName();
+				}
+				// added by dingning
+				if (type.equals("SQL.Server")) {
+					ip = message.getName();
 				}
 			}
 		}

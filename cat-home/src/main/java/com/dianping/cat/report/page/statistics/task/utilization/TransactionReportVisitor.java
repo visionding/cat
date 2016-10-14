@@ -26,6 +26,7 @@ public class TransactionReportVisitor extends BaseVisitor {
 
 	private static final String MEMCACHED = "Cache.memcached";
 
+	// added by dingning
 	private static final String REDIS = "Cache.redis";
 
 	private Map<Integer, Long> m_counts = new HashMap<Integer, Long>();
@@ -38,6 +39,7 @@ public class TransactionReportVisitor extends BaseVisitor {
 		m_types.add("PigeonCall");
 		m_types.add("SQL");
 		m_types.add(MEMCACHED);
+		// added by dingning
 		m_types.add(REDIS);
 	}
 
@@ -101,6 +103,7 @@ public class TransactionReportVisitor extends BaseVisitor {
 			typeName = "PigeonCall";
 		} else if (typeName.startsWith(MEMCACHED)) {
 			typeName = MEMCACHED;
+		// added by dingning
 		} else if (typeName.startsWith(REDIS)) {
 			typeName = REDIS;
 		}
